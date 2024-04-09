@@ -26,7 +26,7 @@ export default function ListProduits() {
 
     //affichage
     return (
-        <div>
+        <div className="list-container">
             <h1>Liste de Course</h1>
             <AddProduitForm handleAdd={handleAdd} />
             <ul className="list-produits">
