@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import ListProduits from './components/ListProduits';
+import ListProduits from './components/produit/ListProduits';
 
 function App() {
   return (
