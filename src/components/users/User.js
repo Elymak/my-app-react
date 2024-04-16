@@ -6,11 +6,8 @@ export default function User({userInfos}) {
 
   //affichage
   return (
-    <div>
-        <li>
-        {userInfos.surname} {userInfos.name}
-        </li>
-
-    </div>
+    <tr>
+        <td>{userInfos.surname}</td><td>{userInfos.name}</td>
+    </tr>
   );
 }

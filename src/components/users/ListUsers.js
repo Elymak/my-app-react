@@ -12,15 +12,7 @@ export default function ListUsers() {
     const [isMounted, setIsMounted] = useState(false);
     const [error, setError] = useState(null);
 
-    /*
-    useEffect(() => {
-        !isMounted &&
-          api.getUsers().then((json) => {
-            setUsers(json);
-            setIsMounted(true);
-          });
-      }, [isMounted]);
-    */
+
     useEffect(() => {
         !isMounted && fetch("http://localhost:8080/api/users")
         .then((res) => {
@@ -36,21 +28,27 @@ export default function ListUsers() {
     }, [isMounted]);
 
     //comportements
-    const fetchUsers = () => {
-    };
 
     //affichage
     return (
         <div>
             <h1>Liste des utilisateurs</h1>
-            <ul>
-                {users.map((user) => (
-                    <User
-                        key={user.id}
-                        userInfos={user}
-                    />
-                ))}
-            </ul>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Surname</th>
+                        <th>Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {users.map((user) => (
+                        <User
+                            key={user.id}
+                            userInfos={user}
+                        />
+                    ))}
+                </tbody>
+            </table>
         </div>
     );
 }
