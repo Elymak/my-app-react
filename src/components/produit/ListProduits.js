@@ -6,7 +6,11 @@ import "./ListProduits.css";
 export default function ListProduits() {
 
     //state
-    const [produits, setProduits] = useState([]);
+    const [produits, setProduits] = useState([
+        {id: 1, name: "Sel"},
+        {id: 2, name: "Pâtes"},
+        {id: 3, name: "PQ"}
+    ]);
 
     //comportements
     const handleAdd = (produitAAjouter) => {

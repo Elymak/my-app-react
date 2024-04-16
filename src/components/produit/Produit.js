@@ -6,8 +6,11 @@ export default function Produit({produitInfos, onClick}) {
 
   //affichage
   return (
-      <li>
-        {produitInfos.name} <button onClick={onClick}>X</button>
-      </li>
+    <div>
+        <li>
+        {produitInfos.name}
+        </li>
+        <button onClick={onClick}>X</button>
+    </div>
   );
 }
