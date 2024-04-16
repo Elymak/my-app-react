@@ -38,6 +38,8 @@ export default function ListUsers() {
                     <tr>
                         <th>Surname</th>
                         <th>Name</th>
+                        <th>Surname</th>
+                        <th>Email</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,6 +51,7 @@ export default function ListUsers() {
                     ))}
                 </tbody>
             </table>
+            <a href="/addUser">Add a user</a>
         </div>
     );
 }

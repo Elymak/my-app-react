@@ -1,6 +1,8 @@
 import { useState } from "react";
+import "./AddUserForm.css";
 
 export default function AddUserForm({ handleAddUser }) {
+
     //state
     const [newSurname, setNewSurname] = useState("");
     const [newName, setNewName] = useState("");
@@ -40,7 +42,7 @@ export default function AddUserForm({ handleAddUser }) {
                 "email": newEmail,
                 "password": newPassword
             };
-            handleAddUser(newUser);
+            postNewUser(newUser);
             setNewSurname("");
             setNewName("");
             setNewUsername("");
@@ -52,16 +54,30 @@ export default function AddUserForm({ handleAddUser }) {
         }
     }
 
+    const postNewUser = (newUserToAdd) => {
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(newUserToAdd)
+        };
+        fetch('http://localhost:8080/api/save', requestOptions)
+            .then(response => window.location = "/");
+    }
+
     //affichage
     return (
-        <form action="submit" onSubmit={handleSubmit} className="">
-           <input value={newSurname} onChange={handleChangeSurname} type="text" placeholder="Surname" />
-           <input value={newName} onChange={handleChangeName} type="text" placeholder="Name" />
-           <input value={newUsername} onChange={handleChangeUsername} type="text" placeholder="Username" />
-           <input value={newEmail} onChange={handleChangeEmail} type="email" placeholder="Email" />
-           <input value={newPassword} onChange={handleChangePassword} type="password" placeholder="Password" />
-           <input value={newVerify} onChange={handleChangeVerify} type="password" placeholder="Verify Password" />
-           <button>Create</button>
-        </form>
+        <div className="add-user-form">
+            <h1>Add a new User</h1>
+            <form id="msform" action="submit" onSubmit={handleSubmit} className="">
+               <input value={newSurname} onChange={handleChangeSurname} type="text" placeholder="Surname" />
+               <input value={newName} onChange={handleChangeName} type="text" placeholder="Name" />
+               <input value={newUsername} onChange={handleChangeUsername} type="text" placeholder="Username" />
+               <input value={newEmail} onChange={handleChangeEmail} type="email" placeholder="Email" />
+               <input value={newPassword} onChange={handleChangePassword} type="password" placeholder="Password" />
+               <input value={newVerify} onChange={handleChangeVerify} type="password" placeholder="Verify Password" />
+               <button className="action-button">Create</button>
+            </form>
+            <a className="back" href="/">Back to main menu</a>
+        </div>
     );
 }
