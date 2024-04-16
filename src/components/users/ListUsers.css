@@ -39,3 +39,18 @@ tfoot th {
 tfoot td {
   font-weight: bold;
 }
+
+a {
+  background: lightgrey;
+  font-weight: bold;
+  color: black;
+  border-radius: 5px;
+  padding: 10px;
+  text-decoration: none;
+  font-size: 14px;
+  text-transform: uppercase;
+  display: block;
+  width: 200px;
+  text-align: center;
+  margin: 50px auto;
+}

@@ -38,7 +38,7 @@ export default function ListUsers() {
                     <tr>
                         <th>Surname</th>
                         <th>Name</th>
-                        <th>Surname</th>
+                        <th>Username</th>
                         <th>Email</th>
                     </tr>
                 </thead>
