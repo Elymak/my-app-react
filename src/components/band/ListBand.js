@@ -1,25 +1,22 @@
 import { useState, useEffect } from "react";
-import User from "./User";
-import "./ListUsers.css";
-//import api from "./../../api/api";
+import Band from "./Band";
+import "./ListBand.css";
 
-export default function ListUsers() {
+export default function ListBand() {
 
     //state
-    const [users, setUsers] = useState([
-        {"id":1,"name":"Daniel","surname":"Marcus","username":"user12","email":"user@gmail.com","password":"password123"}
-    ]);
+    const [bands, setBands] = useState([]);
     const [isMounted, setIsMounted] = useState(false);
     const [error, setError] = useState(null);
 
 
     useEffect(() => {
-        !isMounted && fetch("http://localhost:8080/api/users")
+        !isMounted && fetch("http://localhost:8080/api/bands")
         .then((res) => {
             return res.json();
         })
         .then(data => {
-            setUsers(data);
+            setBands(data);
             setIsMounted(true);
         })
         .catch(rejected => {
@@ -32,26 +29,25 @@ export default function ListUsers() {
     //affichage
     return (
         <div>
-            <h1>Liste des utilisateurs</h1>
+            <h1>Band List</h1>
             <table>
                 <thead>
                     <tr>
-                        <th>Surname</th>
                         <th>Name</th>
-                        <th>Username</th>
-                        <th>Email</th>
+                        <th>Style</th>
+                        <th>Logo</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map((user) => (
-                        <User
-                            key={user.id}
-                            userInfos={user}
+                    {bands.map((band) => (
+                        <Band
+                            key={band.id}
+                            bandInfos={band}
                         />
                     ))}
                 </tbody>
             </table>
-            <a href="/addUser">Add a user</a>
+            <a href="/addBand">Add a new band</a>
         </div>
     );
 }

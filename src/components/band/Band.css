@@ -1,0 +1,6 @@
+td {
+    img {
+        height:100px;
+        width:auto;/*maintain aspect ratio*/
+    }
+}

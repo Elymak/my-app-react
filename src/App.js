@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import ListProduits from './components/produit/ListProduits';
-import ListUsers from "./components/users/ListUsers";
-import AddUserForm from "./components/addUserForm/AddUserForm";
+import ListBand from "./components/band/ListBand";
+import AddBandForm from "./components/addBandForm/AddBandForm";
 
 import {
     BrowserRouter as Router,
@@ -19,12 +19,12 @@ function App() {
                 <Route
                     exact
                     path="/"
-                    element={<ListUsers />}
+                    element={<ListBand />}
                 />
                 <Route
                     exact
-                    path="/addUser"
-                    element={<AddUserForm />}
+                    path="/addBand"
+                    element={<AddBandForm />}
                 />
                 <Route
                     path="*"
