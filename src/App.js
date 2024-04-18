@@ -2,7 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import ListProduits from './components/produit/ListProduits';
 import ListBand from "./components/band/ListBand";
+import BandForm from "./components/bandForm/BandForm";
 import AddBandForm from "./components/addBandForm/AddBandForm";
+import UpdateBandForm from "./components/updateBandForm/UpdateBandForm";
 
 import {
     BrowserRouter as Router,
@@ -26,10 +28,9 @@ function App() {
                     path="/addBand"
                     element={<AddBandForm />}
                 />
-                <Route
-                    path="*"
-                    element={<Navigate to="/" />}
-                />
+                <Route path="/updateBand">
+                    <Route path=":bandId" element={<UpdateBandForm />} />
+                </Route>
             </Routes>
         </Router>
     );

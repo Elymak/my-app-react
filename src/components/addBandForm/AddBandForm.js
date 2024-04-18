@@ -1,38 +1,9 @@
-import { useState } from "react";
-import "./AddBandForm.css";
+import BandForm from "./../bandForm/BandForm";
 
-export default function AddBandForm() {
-
+export default function AddBandForm({}) {
     //state
-    const [newName, setNewName] = useState("");
-    const [newStyle, setNewStyle] = useState("");
-    const [newImage, setNewImage] = useState("");
 
-    //comportements
-    const handleChangeName = (event) => {
-        setNewName(event.target.value);
-    }
-    const handleChangeStyle = (event) => {
-        setNewStyle(event.target.value);
-    }
-    const handleChangeImage = (event) => {
-        setNewImage(event.target.value);
-    }
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-
-        const newBand = {
-            "name": newName,
-            "style": newStyle,
-            "image": newImage
-        };
-        postNewUser(newBand);
-        setNewName("");
-        setNewStyle("");
-        setNewImage("");
-    }
-
+    //comportement
     const postNewUser = (newBandToAdd) => {
         const requestOptions = {
             method: 'POST',
@@ -45,15 +16,8 @@ export default function AddBandForm() {
 
     //affichage
     return (
-        <div className="add-band-form">
-            <h1>Add a new Band</h1>
-            <form id="msform" action="submit" onSubmit={handleSubmit}>
-               <input value={newName} onChange={handleChangeName} type="text" placeholder="Name" />
-               <input value={newStyle} onChange={handleChangeStyle} type="text" placeholder="Style" />
-               <input value={newImage} onChange={handleChangeImage} type="text" placeholder="Image Url" />
-               <button className="action-button">Create Band</button>
-            </form>
-            <a className="back" href="/">Back to main menu</a>
+        <div>
+            <BandForm title="Add a new band" submitButtonLabel="Create new band" handleFormSubmit={postNewUser} />
         </div>
     );
 }

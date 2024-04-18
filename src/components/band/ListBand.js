@@ -25,6 +25,17 @@ export default function ListBand() {
     }, [isMounted]);
 
     //comportements
+    const onClickEditBand = (bandId) => {
+        window.location = "/updateBand/" + bandId;
+    }
+
+    const onClickDeleteBand = (bandId) => {
+        const requestOptions = {
+            method: 'DELETE'
+        };
+        fetch('http://localhost:8080/api/band/' + bandId, requestOptions)
+            .then(response => window.location = "/");
+    }
 
     //affichage
     return (
@@ -43,6 +54,8 @@ export default function ListBand() {
                         <Band
                             key={band.id}
                             bandInfos={band}
+                            onClickEdit={onClickEditBand}
+                            onClickDelete={onClickDeleteBand}
                         />
                     ))}
                 </tbody>
