@@ -1,6 +1,5 @@
 import logo from './logo.svg';
 import './App.css';
-import ListProduits from './components/produit/ListProduits';
 import ListBand from "./components/band/ListBand";
 import BandForm from "./components/bandForm/BandForm";
 import AddBandForm from "./components/addBandForm/AddBandForm";

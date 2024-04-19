@@ -10,22 +10,22 @@ export default function UpdateBandForm() {
     const [isMounted, setIsMounted] = useState("");
 
     useEffect (() => {
-    !isMounted && fetch('http://localhost:8080/api/band/' + bandId)
-        .then((res) => {
-            return res.json();
-        })
-        .then(data => {
-            setBand(data);
-            setIsMounted(true);
-        })
-        .catch(rejected => {
-            console.log("failed", rejected);
-        });
+        !isMounted && fetch('http://localhost:8080/api/band/' + bandId)
+            .then((res) => {
+                return res.json();
+            })
+            .then(data => {
+                setBand(data);
+                setIsMounted(true);
+            })
+            .catch(rejected => {
+                console.log("failed", rejected);
+            });
     });
 
     //comportements
     const updateBand = (updatedBand) => {
-        const updateBandCopy = {
+        const updatedBandCopy = {
             "id": bandId,
             "name": updatedBand.name,
             "style": updatedBand.style,
@@ -34,7 +34,7 @@ export default function UpdateBandForm() {
         const requestOptions = {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(updateBandCopy)
+            body: JSON.stringify(updatedBandCopy)
         };
         fetch('http://localhost:8080/api/band', requestOptions)
             .then(response => window.location = "/");
