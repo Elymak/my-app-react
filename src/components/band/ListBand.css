@@ -1,3 +1,29 @@
+#actions {
+    display: block;
+    margin: 50px auto;
+    width: 250px;
+
+    input {
+        padding: 0 10px;
+        height: 35px;
+        border: none;
+        border-radius: 5px;
+    }
+
+    a {
+      background: green;
+      font-weight: bold;
+      color: white;
+      border-radius: 25%;
+      padding: 10px;
+      text-decoration: none;
+      font-size: 14px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-left: 20px;
+    }
+}
+
 table {
   border-collapse: collapse;
   border: 2px solid rgb(140 140 140);
@@ -40,17 +66,3 @@ tfoot td {
   font-weight: bold;
 }
 
-a {
-  background: lightgrey;
-  font-weight: bold;
-  color: black;
-  border-radius: 5px;
-  padding: 10px;
-  text-decoration: none;
-  font-size: 14px;
-  text-transform: uppercase;
-  display: block;
-  width: 200px;
-  text-align: center;
-  margin: 50px auto;
-}

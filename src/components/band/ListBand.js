@@ -6,6 +6,8 @@ export default function ListBand() {
 
     //state
     const [bands, setBands] = useState([]);
+    const [filteredBands, setFilteredBands] = useState([]);
+    const [searchText, setSearchText] = useState("");
     const [isMounted, setIsMounted] = useState(false);
     const [error, setError] = useState(null);
 
@@ -17,6 +19,7 @@ export default function ListBand() {
         })
         .then(data => {
             setBands(data);
+            setFilteredBands(data);
             setIsMounted(true);
         })
         .catch(rejected => {
@@ -25,6 +28,19 @@ export default function ListBand() {
     }, [isMounted]);
 
     //comportements
+    const handleSearchText = (event) => {
+        let filter = event.target.value.trim();
+        const filteredData = bands.filter((band) => {
+            if(filter == "") {
+                return band;
+            } else {
+                return band.name.toLowerCase().includes(filter.toLowerCase());
+            }
+        });
+        setFilteredBands(filteredData);
+        setSearchText(filter);
+    }
+
     const onClickEditBand = (bandId) => {
         window.location = "/updateBand/" + bandId;
     }
@@ -41,6 +57,10 @@ export default function ListBand() {
     return (
         <div>
             <h1>Band List</h1>
+            <div id="actions">
+                <input id="search" value={searchText} onChange={handleSearchText} type="text" placeholder="Search" />
+                <a href="/addBand">+</a>
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -50,7 +70,7 @@ export default function ListBand() {
                     </tr>
                 </thead>
                 <tbody>
-                    {bands.map((band) => (
+                    {filteredBands.map((band) => (
                         <Band
                             key={band.id}
                             bandInfos={band}
@@ -60,7 +80,6 @@ export default function ListBand() {
                     ))}
                 </tbody>
             </table>
-            <a href="/addBand">Add a new band</a>
         </div>
     );
 }
