@@ -53,6 +53,10 @@ export default function ListBand() {
             .then(response => window.location = "/");
     }
 
+    const onClickGoToBandInfos = (bandId) => {
+        window.location = "/band/" + bandId;
+    }
+
     //affichage
     return (
         <div>
@@ -76,6 +80,7 @@ export default function ListBand() {
                             bandInfos={band}
                             onClickEdit={onClickEditBand}
                             onClickDelete={onClickDeleteBand}
+                            onClickConsult={onClickGoToBandInfos}
                         />
                     ))}
                 </tbody>

@@ -1,6 +1,6 @@
 import "./Band.css";
 
-export default function Band({bandInfos, onClickEdit, onClickDelete}) {
+export default function Band({bandInfos, onClickEdit, onClickDelete, onClickConsult}) {
 
   //state
 
@@ -13,12 +13,16 @@ export default function Band({bandInfos, onClickEdit, onClickDelete}) {
     onClickEdit(bandInfos.id);
   }
 
+  const onClickBand = (event) => {
+    onClickConsult(bandInfos.id);
+  }
+
   //affichage
   return (
     <tr>
-        <td>{bandInfos.name}</td>
-        <td>{bandInfos.style}</td>
-        <td><img src={bandInfos.image}/></td>
+        <td onClick={onClickBand}>{bandInfos.name}</td>
+        <td onClick={onClickBand}>{bandInfos.style}</td>
+        <td onClick={onClickBand}><img src={bandInfos.logo}/></td>
         <td><img className="action" src="images/edit.png" onClick={onClickEditImage} /></td>
         <td><img className="action" src="images/delete.png" onClick={onClickDeleteImage} /></td>
     </tr>

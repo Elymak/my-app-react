@@ -29,7 +29,9 @@ export default function UpdateBandForm() {
             "id": bandId,
             "name": updatedBand.name,
             "style": updatedBand.style,
-            "image": updatedBand.image
+            "photo": updatedBand.photo,
+            "logo": updatedBand.logo,
+            "description": updatedBand.description
         };
         const requestOptions = {
             method: 'PUT',

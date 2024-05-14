@@ -6,7 +6,9 @@ export default function BandForm({title, submitButtonLabel, bandInfos, handleFor
     //state
     const [newName, setNewName] = useState(bandInfos !== undefined ? bandInfos.name : "");
     const [newStyle, setNewStyle] = useState(bandInfos !== undefined ? bandInfos.style : "");
-    const [newImage, setNewImage] = useState(bandInfos !== undefined ? bandInfos.image : "");
+    const [newLogo, setNewLogo] = useState(bandInfos !== undefined ? bandInfos.logo : "");
+    const [newPhoto, setNewPhoto] = useState(bandInfos !== undefined ? bandInfos.photo : "");
+    const [newDescription, setNewDescription] = useState(bandInfos !== undefined ? bandInfos.description : "");
 
     //comportements
     const handleChangeName = (event) => {
@@ -15,8 +17,14 @@ export default function BandForm({title, submitButtonLabel, bandInfos, handleFor
     const handleChangeStyle = (event) => {
         setNewStyle(event.target.value);
     }
-    const handleChangeImage = (event) => {
-        setNewImage(event.target.value);
+    const handleChangeLogo = (event) => {
+        setNewLogo(event.target.value);
+    }
+    const handleChangePhoto = (event) => {
+        setNewPhoto(event.target.value);
+    }
+    const handleChangeDescription = (event) => {
+        setNewDescription(event.target.value);
     }
 
     const handleSubmit = (event) => {
@@ -25,12 +33,16 @@ export default function BandForm({title, submitButtonLabel, bandInfos, handleFor
         const newBand = {
             "name": newName,
             "style": newStyle,
-            "image": newImage
+            "logo": newLogo,
+            "photo": newPhoto,
+            "description": newDescription
         };
         handleFormSubmit(newBand);
         setNewName("");
         setNewStyle("");
-        setNewImage("");
+        setNewLogo("");
+        setNewPhoto("");
+        setNewDescription("");
     }
 
     //affichage
@@ -38,9 +50,11 @@ export default function BandForm({title, submitButtonLabel, bandInfos, handleFor
         <div className="add-band-form">
             <h1>{title}</h1>
             <form id="msform" action="submit" onSubmit={handleSubmit}>
-               <input value={newName} onChange={handleChangeName} type="text" placeholder="Name" />
-               <input value={newStyle} onChange={handleChangeStyle} type="text" placeholder="Style" />
-               <input value={newImage} onChange={handleChangeImage} type="text" placeholder="Image Url" />
+               <label>Name</label><input value={newName} onChange={handleChangeName} type="text" placeholder="Name" />
+               <label>Style</label><input value={newStyle} onChange={handleChangeStyle} type="text" placeholder="Style" />
+               <label>Logo Url</label><input value={newLogo} onChange={handleChangeLogo} type="text" placeholder="Logo Url" />
+               <label>Photo Url</label><input value={newPhoto} onChange={handleChangePhoto} type="text" placeholder="Photo Url" />
+               <label>Description</label><textarea className="description" value={newDescription} onChange={handleChangeDescription} type="text" placeholder="Description" />
                <button className="action-button">{submitButtonLabel}</button>
             </form>
             <a className="back" href="/">Back to main menu</a>

@@ -2,7 +2,7 @@
 
     /*form styles*/
     #msform {
-      width: 400px;
+      width: 500px;
       margin: 50px auto;
       text-align: center;
       position: relative;
@@ -38,7 +38,14 @@
       box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
     }
 
+    .description {
+        height: 250px;
+    }
+
     .back {
+        display: block;
+        margin: 50px auto;
+        width: fit-content;
         background: lightgrey;
         font-weight: bold;
         color: black;

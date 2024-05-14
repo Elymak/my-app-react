@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import ListBand from "./components/band/ListBand";
+import BandInfos from "./components/band/BandInfos";
 import BandForm from "./components/bandForm/BandForm";
 import AddBandForm from "./components/addBandForm/AddBandForm";
 import UpdateBandForm from "./components/updateBandForm/UpdateBandForm";
@@ -29,6 +30,9 @@ function App() {
                 />
                 <Route path="/updateBand">
                     <Route path=":bandId" element={<UpdateBandForm />} />
+                </Route>
+                <Route path="/band">
+                    <Route path=":bandId" element={<BandInfos />} />
                 </Route>
             </Routes>
         </Router>
