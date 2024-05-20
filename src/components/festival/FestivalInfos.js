@@ -26,24 +26,25 @@ export default function FestivalInfos({}) {
         return(
             <div>
                 <h1>{festival.name}</h1>
-                <img src={festival.image} />
-                <caption>Programmation</caption>
-                <table>
-                    <thead>
-                        <tr>
-                            <td>Band</td>
-                            <td>Hour</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {festival.bands.map((band) => (
+                <div>
+                    <img src={festival.image} />
+                    <table>
+                        <thead>
                             <tr>
-                                <td>{band.name}</td>
-                                <td>{band.showdate}</td>
+                                <td>Band</td>
+                                <td>Hour</td>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
+                        </thead>
+                        <tbody>
+                            {festival.bands.map((band) => (
+                                <tr key={band.id}>
+                                    <td>{band.name}</td>
+                                    <td>{band.showdate}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         );
     } else {

@@ -5,12 +5,8 @@
 * {margin: 0; padding: 0;}
 
 html {
-  /*height: 100%;
-  /*Image only BG fallback*/
-
-  /*background = gradient + image pattern combo*/
-  background:
-    linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
+    background: linear-gradient(rgb(255, 255, 255), rgb(150, 150, 150));
+    min-height: 830px;
 }
 
 body {
@@ -19,7 +15,7 @@ body {
 
 /*headings*/
 h1 {
-    margin: 50px auto;
+    margin: auto;
     text-transform: uppercase;
     color: #2C3E50;
     width: fit-content;

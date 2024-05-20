@@ -1,10 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
+import Home from "./components/home/Home";
 import ListBand from "./components/band/ListBand";
 import BandInfos from "./components/band/BandInfos";
 import AddBandForm from "./components/band/addBandForm/AddBandForm";
 import UpdateBandForm from "./components/band/updateBandForm/UpdateBandForm";
+import ListFestival from "./components/festival/ListFestival";
 import FestivalInfos from "./components/festival/FestivalInfos";
+import NotFoundPage from "./components/404/NotFoundPage";
 
 import {
     BrowserRouter as Router,
@@ -21,6 +24,11 @@ function App() {
                 <Route
                     exact
                     path="/"
+                    element={<Home />}
+                />
+                <Route
+                    exact
+                    path="/bands"
                     element={<ListBand />}
                 />
                 <Route
@@ -37,6 +45,8 @@ function App() {
                 <Route path="/festival">
                     <Route path=":festivalId" element={<FestivalInfos />} />
                 </Route>
+                <Route path="*" element={<NotFoundPage />} />
+
             </Routes>
         </Router>
     );

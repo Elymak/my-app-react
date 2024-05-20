@@ -1,0 +1,15 @@
+div#home {
+    div.introduction {
+        margin: auto;
+        padding: 20px;
+        h2 {
+            text-transform: uppercase;
+            text-decoration: underline;
+
+        }
+        p {
+            color: black;
+            margin-top: 5px;
+        }
+    }
+}
