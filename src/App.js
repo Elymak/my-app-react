@@ -2,9 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import ListBand from "./components/band/ListBand";
 import BandInfos from "./components/band/BandInfos";
-import BandForm from "./components/bandForm/BandForm";
-import AddBandForm from "./components/addBandForm/AddBandForm";
-import UpdateBandForm from "./components/updateBandForm/UpdateBandForm";
+import AddBandForm from "./components/band/addBandForm/AddBandForm";
+import UpdateBandForm from "./components/band/updateBandForm/UpdateBandForm";
+import FestivalInfos from "./components/festival/FestivalInfos";
 
 import {
     BrowserRouter as Router,
@@ -33,6 +33,9 @@ function App() {
                 </Route>
                 <Route path="/band">
                     <Route path=":bandId" element={<BandInfos />} />
+                </Route>
+                <Route path="/festival">
+                    <Route path=":festivalId" element={<FestivalInfos />} />
                 </Route>
             </Routes>
         </Router>
