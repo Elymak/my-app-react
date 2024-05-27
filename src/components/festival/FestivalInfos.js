@@ -28,6 +28,8 @@ export default function FestivalInfos({}) {
                 <h1>{festival.name}</h1>
                 <div>
                     <img src={festival.image} />
+                    <p>Du {festival.startTime} au {festival.endTime}</p>
+                    <h2>Programme</h2>
                     <table>
                         <thead>
                             <tr>
@@ -39,7 +41,7 @@ export default function FestivalInfos({}) {
                             {festival.bands.map((band) => (
                                 <tr key={band.id}>
                                     <td>{band.name}</td>
-                                    <td>{band.showdate}</td>
+                                    <td>{band.showDate}</td>
                                 </tr>
                             ))}
                         </tbody>
