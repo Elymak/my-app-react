@@ -34,6 +34,7 @@ export default function FestivalInfos({}) {
                         <thead>
                             <tr>
                                 <td>Band</td>
+                                <td>Logo</td>
                                 <td>Hour</td>
                             </tr>
                         </thead>
@@ -41,12 +42,14 @@ export default function FestivalInfos({}) {
                             {festival.bands.map((band) => (
                                 <tr key={band.id}>
                                     <td>{band.name}</td>
+                                    <td><img src={band.logo} /></td>
                                     <td>{band.showDate}</td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>
                 </div>
+                <a className="back" href="/">Back to main menu</a>
             </div>
         );
     } else {
