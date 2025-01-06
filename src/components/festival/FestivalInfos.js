@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import {useState, useEffect} from "react";
+import FestivalBandInfos from "./FestivalBandInfos";
 
 export default function FestivalInfos({}) {
     //state
@@ -21,6 +22,11 @@ export default function FestivalInfos({}) {
             });
     });
 
+    //comportements
+    const onClickConsultBand = (bandId) => {
+        window.location = "/band/" + bandId;
+    }
+
     //affichage
     if(isMounted) {
         return(
@@ -40,11 +46,11 @@ export default function FestivalInfos({}) {
                         </thead>
                         <tbody>
                             {festival.bands.map((band) => (
-                                <tr key={band.id}>
-                                    <td>{band.name}</td>
-                                    <td><img src={band.logo} /></td>
-                                    <td>{band.showDate}</td>
-                                </tr>
+                                <FestivalBandInfos
+                                    key={band.id}
+                                    bandInfos={band}
+                                    onClickConsultBand={onClickConsultBand}
+                                />
                             ))}
                         </tbody>
                     </table>
